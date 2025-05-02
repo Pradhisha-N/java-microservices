@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         SONAR_TOKEN = 'squ_842fdae8b2f69eb6f608b9387f6bd5542eac7a29'
-        SONAR_HOST_URL = 'http://localhost:9000'
+        SONAR_HOST_URL = 'http://23.22.108.1:9000'
         DOCKER_USER = 'pradhisha'
         DOCKER_PASS = credentials('dockerhub-credentials-id') 
         KUBECONFIG = '/var/lib/jenkins/.kube/config'
