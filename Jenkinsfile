@@ -2,17 +2,17 @@ pipeline {
     agent any
 
     environment {
-        SONAR_TOKEN = 'sqa_2052fb1a438726238b842acfdd509153ab8b51b0'
+        SONAR_TOKEN = 'squ_842fdae8b2f69eb6f608b9387f6bd5542eac7a29'
         SONAR_HOST_URL = 'http://localhost:9000'
-        DOCKER_USER = 'ankitamohanty1509'
-        DOCKER_PASS = credentials('docker-hub-credentials') 
+        DOCKER_USER = 'pradhisha'
+        DOCKER_PASS = credentials('dockerhub-credentials-id') 
         KUBECONFIG = '/var/lib/jenkins/.kube/config'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/ankitamohanty1509/java-microservices.git', branch: 'main'
+                git url: 'https://github.com/Pradhisha-N/java-microservices.git', branch: 'main'
             }
         }
 
@@ -39,8 +39,8 @@ pipeline {
                 )]) {
                     sh '''
                         echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-                        docker build -t ankitamohanty1509/my-app:latest .
-                        docker push ankitamohanty1509/my-app:latest
+                        docker build -t pradhisha/my-app:latest .
+                        docker push pradhisha/my-app:latest
                     '''
                 }
             }
